@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
+import Visualizer from './components/Visualizer/Visualizer';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <main className="App">
+      <Visualizer />
+    </main>
   );
 }
 

@@ -1,18 +1,18 @@
 .container {
-	display: inline;
+	margin: auto;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(8px, 1fr));
+	grid-template-rows: 1fr;
+	gap: 2px;
 	text-align: center;
 	vertical-align: middle;
-	justify-content: space-between;
+	justify-content: center;
 }
 .element {
-	display: inline-block;
-	margin: 5px;
-	padding: 10px;
-	width: 1em;
+	/* display: block; */
 	/* display: inline; */
-	border: cornflowerblue 1px solid;
+	border: cornflowerblue 2px solid;
 	background-color: royalblue;
 	color: white;
-	/* margin: 5px; */
-	/* height: 10px; */
 }

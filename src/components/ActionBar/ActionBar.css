@@ -1,0 +1,21 @@
+.action-bar {
+	position: absolute;
+	top: calc(100vh - 53px);
+	width: calc(100% - 10px);
+	height: 48px;
+	background-color: cornflowerblue;
+	padding: auto;
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(5, 1fr);
+	justify-content: space-between;
+	border-radius: 6px;
+}
+.button {
+	background-color: cornflowerblue;
+	border: royalblue;
+	border-radius: 6px;
+}
+/* .button:hover {
+	
+} */

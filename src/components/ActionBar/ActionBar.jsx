@@ -9,6 +9,7 @@ export default function ActionBar(props) {
 			<button className="button" onClick={() => dispatch({type:'merge'})}>merge sort</button>
 			<button className="button" onClick={() => dispatch({type:'quick'})}>quick sort</button>
 			<button className="button" onClick={() => dispatch({type:'heap'})}>heap sort</button>
+			<button className="button" onClick={() => dispatch({type:'insertion'})}>insertion sort</button>
 			<button className="button" onClick={() => dispatch({type:'bubble'})}>bubble sort</button>
 		</div>
 	);

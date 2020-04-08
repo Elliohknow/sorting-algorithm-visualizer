@@ -1,4 +1,6 @@
 import React from 'react';
+import { bubbleSort } from './algorithms/BubbleSort';
+import { insertionSort } from './algorithms/InsertionSort';
 import { mergeSort } from './algorithms/MergeSort';
 import './App.css';
 import ActionBar from './components/ActionBar/ActionBar';
@@ -10,7 +12,6 @@ const initialState = {
 };
 
 export default function App() {
-	// const [array, setArray] = React.useState([]);
 	const [state, dispatch] = React.useReducer(reducer, initialState);
 	const { array, algorithm } = state;
 
@@ -63,10 +64,17 @@ function reducer(state, action) {
 				...state,
 				algorithm: 'heap',
 			};
+		case 'insertion':
+			return {
+				...state,
+				algorithm: 'insertion',
+				array: insertionSort(state.array)
+			};
 		case 'bubble':
 			return {
 				...state,
 				algorithm: 'bubble',
+				array: bubbleSort(state.array),
 			};
 		default:
 			return state;

@@ -1,4 +1,6 @@
 .App {
+	color: white;
+	background-color: darkslategray;
 	display: block;
 	margin: auto;
 	padding: 5px;

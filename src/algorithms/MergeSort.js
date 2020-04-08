@@ -21,7 +21,7 @@ function merge(first, second) {
 			j++;
 		}
 	}
-	
+
 	return array.concat(first.slice(i)).concat(second.slice(j));
 }
 

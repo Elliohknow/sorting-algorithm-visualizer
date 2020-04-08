@@ -1,7 +1,9 @@
 import React from 'react';
 import { bubbleSort } from './algorithms/BubbleSort';
+import { heapSort } from './algorithms/HeapSort';
 import { insertionSort } from './algorithms/InsertionSort';
 import { mergeSort } from './algorithms/MergeSort';
+import { quickSort } from './algorithms/QuickSort';
 import './App.css';
 import ActionBar from './components/ActionBar/ActionBar';
 import Visualizer from './components/Visualizer/Visualizer';
@@ -16,7 +18,6 @@ export default function App() {
 	const { array, algorithm } = state;
 
 	React.useEffect(() => dispatch({type: 'reset'}), []);
-
 	
   return (
     <div className="App">
@@ -30,17 +31,17 @@ export default function App() {
 function randomNum(max, min) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
+// make a new array 
 function resetArray() {
 	const array = [];
 
-	for (let i = 0; i < 100; i++) {
-		array.push(randomNum(20, 1));
+	for (let i = 0; i < 160; i++) {
+		array.push(randomNum(160, 1));
 	}
-	// setArray(array);
+	
 	return array;
 }
-
+// state reducer 
 function reducer(state, action) {
 	switch (action.type) {
 		case 'reset':
@@ -58,11 +59,13 @@ function reducer(state, action) {
 			return {
 				...state,
 				algorithm: 'quick',
+				array: quickSort(state.array)
 			};
 		case 'heap':
 			return {
 				...state,
 				algorithm: 'heap',
+				array: heapSort(state.array)
 			};
 		case 'insertion':
 			return {

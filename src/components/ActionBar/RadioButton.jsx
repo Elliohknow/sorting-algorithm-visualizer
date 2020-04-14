@@ -1,14 +1,17 @@
+import Button from '@material-ui/core/Button';
 import React from 'react';
 
 const RadioButton = ({ value, name, className, dispatch }) => (
-	<button 
+	<Button
+		variant="contained"
+		color="primary"
 		type="submit"
 		className={className}
 		value={value}
 		name={name}
 		onClick={()=>dispatch({type:value})}
 	>{value} sort
-	</button>
+	</Button>
 );
 export default RadioButton;
 // const [toggleState, setToggle] = useToggle('off');

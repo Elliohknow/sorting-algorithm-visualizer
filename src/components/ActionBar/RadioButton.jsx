@@ -1,12 +1,13 @@
 import Button from '@material-ui/core/Button';
 import React from 'react';
 
-const RadioButton = ({ value, name, className, dispatch }) => (
+const RadioButton = ({ value, name, color, dispatch }) => (
 	<Button
 		variant="contained"
-		color="primary"
+		color={color}
 		type="submit"
-		className={className}
+		// className={className}
+		className="button"
 		value={value}
 		name={name}
 		onClick={()=>dispatch({type:value})}

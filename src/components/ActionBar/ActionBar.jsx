@@ -28,7 +28,8 @@ export default function ActionBar() {
 						key={`radio_button_${index+1}`}
 						name={option.name}
 						value={option.value}
-						className={`button ${state.algorithm !== option.value ? 'off': 'on'}`}
+						color={`${state.algorithm !== option.value ? 'primary' : 'secondary'}`}
+						// className={`button ${state.algorithm !== option.value ? 'off': 'on'}`}
 					/>
 				))}
 			</form>

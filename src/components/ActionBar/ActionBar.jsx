@@ -1,17 +1,34 @@
 import React from 'react';
+import { CTX } from '../../Store';
 import './ActionBar.css';
+import RadioButton from './RadioButton';
 
-export default function ActionBar(props) {
-	const { dispatch } = props;
+export default function ActionBar() {
+	const { state, dispatch } = React.useContext(CTX);
+
 	return (
-		<div className="action-bar">
-			<button className="button" onClick={() => dispatch({type:'reset'})}>reset array</button>
-			<button className="button" onClick={() => dispatch({type:'merge'})}>merge sort</button>
-			<button className="button" onClick={() => dispatch({type:'quick'})}>quick sort</button>
-			<button className="button" onClick={() => dispatch({type:'heap'})}>heap sort</button>
-			<button className="button" onClick={() => dispatch({type:'insertion'})}>insertion sort</button>
-			<button className="button" onClick={() => dispatch({type:'bubble'})}>bubble sort</button>
+		<div className="">
+			<form
+				className="action-bar"
+				onSubmit={(e) => {
+					e.preventDefault();
+				}}
+			>
+				<button
+					id="reset-array"
+					className="button"
+					onClick={() => dispatch({type: 'reset'})}
+				>reset array</button>
+				{state.options.map((option, index) => (
+					<RadioButton
+						dispatch={dispatch}
+						key={`radio_button_${index+1}`}
+						name={option.name}
+						value={option.value}
+						className={`button ${state.algorithm !== option.value ? 'off': 'on'}`}
+					/>
+				))}
+			</form>
 		</div>
 	);
 }
-// export default ActionBar;

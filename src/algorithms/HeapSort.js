@@ -64,7 +64,7 @@ function heapify(heap, i, max) {
 function swap(array, firstItemIndex, lastItemIndex) {
 	let tmp = array[firstItemIndex];
 
-	// Swap first and last items in the array.
+	// Swap first and last elements in the array.
 	array[firstItemIndex] = array[lastItemIndex];
 	array[lastItemIndex] = tmp;
 }

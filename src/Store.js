@@ -27,6 +27,18 @@ export default function Store(props) {
 		</CTX.Provider>
 	);
 }
+// get random int between max (inclusive) and min
+function randomNum(max, min) {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+// make a new array 
+function resetArray() {
+	const array = [];
+	for (let i = 0; i < 160; i++) {
+		array.push(randomNum(160, 1));
+	}
+	return array;
+}
 // state reducer 
 function reducer(state, action) {
 	switch (action.type) {
@@ -68,16 +80,4 @@ function reducer(state, action) {
 		default:
 			return state;
 	}
-}
-// get random int between max (inclusive) and min
-function randomNum(max, min) {
-	return Math.floor(Math.random() * (max - min + 1) + min);
-}
-// make a new array 
-function resetArray() {
-	const array = [];
-	for (let i = 0; i < 160; i++) {
-		array.push(randomNum(160, 1));
-	}
-	return array;
 }

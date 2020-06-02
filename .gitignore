@@ -4,8 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
+
 /.history
 /theHaters
+node_modules/
+OLD_*/
 # testing
 /coverage
 

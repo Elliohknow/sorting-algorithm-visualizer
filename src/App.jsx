@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Visualizer array={state.array} algorithm={state.algorithm} />
+      <Visualizer array={state.array} />
       <ActionBar />
     </div>
   );

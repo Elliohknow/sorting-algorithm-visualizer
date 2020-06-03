@@ -35,6 +35,27 @@ function resetArray() {
   }
   return array;
 }
+
+// sort array with chosen algorithm
+function algoSort(array, sortingAlgorithm) {
+  const sortedWithJSBuiltin = array.slice().sort((a, b) => a - b);
+  const sortedWithChosenAlgorithm = sortingAlgorithm(array);
+  if (!checkArrays(sortedWithJSBuiltin, sortedWithChosenAlgorithm)) {
+    console.log('Failed! Used builtin JS Array.prototype.sort() method instead. Try again, you viper!');
+    return sortedWithJSBuiltin;
+  } else {
+    console.log('Success! The chosen algorithm worked! Rejoice!');
+    return sortedWithChosenAlgorithm;
+  }
+}
+// check to see if arrays are equal
+function checkArrays(arr1, arr2) {
+  if (arr1?.length !== arr2?.length) return false;
+  for (let i = 0; i < arr2.length; i++) {
+    if (arr1[i] !== arr2[i]) return false;
+  }
+  return true;
+}
 // state reducer
 function reducer(state, action) {
   switch (action.type) {
@@ -47,31 +68,31 @@ function reducer(state, action) {
       return {
         ...state,
         algorithm: 'merge',
-        array: mergeSort(state.array),
+        array: algoSort(state.array, mergeSort),
       };
     case 'quick':
       return {
         ...state,
         algorithm: 'quick',
-        array: quickSort(state.array),
+        array: algoSort(state.array, quickSort),
       };
     case 'heap':
       return {
         ...state,
         algorithm: 'heap',
-        array: heapSort(state.array),
+        array: algoSort(state.array, heapSort),
       };
     case 'insertion':
       return {
         ...state,
         algorithm: 'insertion',
-        array: insertionSort(state.array),
+        array: algoSort(state.array, insertionSort),
       };
     case 'bubble':
       return {
         ...state,
         algorithm: 'bubble',
-        array: bubbleSort(state.array),
+        array: algoSort(state.array, bubbleSort),
       };
     default:
       return state;

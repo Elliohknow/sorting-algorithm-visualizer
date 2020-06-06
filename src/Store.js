@@ -4,6 +4,7 @@ import {heapSort} from './algorithms/HeapSort';
 import {insertionSort} from './algorithms/InsertionSort';
 import {mergeSort} from './algorithms/MergeSort';
 import {quickSort} from './algorithms/QuickSort';
+import ArrayElement from './ArrayElement';
 
 export const CTX = React.createContext();
 
@@ -31,28 +32,33 @@ function randomNum(max, min) {
 function resetArray() {
   const array = [];
   for (let i = 0; i < 160; i++) {
-    array.push(randomNum(160, 1));
+    let element = new ArrayElement(randomNum(160, 1), i);
+    array.push(element);
   }
   return array;
 }
 
 // sort array with chosen algorithm
 function algoSort(array, sortingAlgorithm) {
-  const sortedWithJSBuiltin = array.slice().sort((a, b) => a - b);
+  const sortedWithJSBuiltin = array.slice().sort((a, b) => a.value - b.value);
   const sortedWithChosenAlgorithm = sortingAlgorithm(array);
   if (!checkArrays(sortedWithJSBuiltin, sortedWithChosenAlgorithm)) {
     console.log('Failed! Used builtin JS Array.prototype.sort() method instead. Try again, you viper!');
     return sortedWithJSBuiltin;
   } else {
-    console.log('Success! The chosen algorithm worked! Rejoice!');
+    console.log('Success! The chosen algorithm worked!');
     return sortedWithChosenAlgorithm;
   }
 }
 // check to see if arrays are equal
-function checkArrays(arr1, arr2) {
-  if (arr1?.length !== arr2?.length) return false;
-  for (let i = 0; i < arr2.length; i++) {
-    if (arr1[i] !== arr2[i]) return false;
+function checkArrays(first, second) {
+  if (first?.length !== second?.length) {
+    return false;
+  }
+  for (let i = 0; i < second.length; i++) {
+    if (first[i].value !== second[i].value) {
+      return false;
+    }
   }
   return true;
 }

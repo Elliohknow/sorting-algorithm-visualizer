@@ -4,14 +4,17 @@ import './Visualizer.css';
 export default function Visualizer(props) {
   const {array} = props;
 
+  // React.useEffect(() => {});
+
   return (
     <main className="container">
       {array.map((value, index) => (
         <div
           className="element"
           key={`element_${index}`}
-          title={value}
-          style={{height: value * 3}}
+          id={`${value.idx}`}
+          title={value.value}
+          style={{height: value.height}}
         />
       ))}
     </main>

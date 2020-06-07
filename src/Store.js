@@ -37,7 +37,6 @@ function resetArray() {
   }
   return array;
 }
-
 // sort array with chosen algorithm
 function algoSort(array, sortingAlgorithm) {
   const sortedWithJSBuiltin = array.slice().sort((a, b) => a.value - b.value);

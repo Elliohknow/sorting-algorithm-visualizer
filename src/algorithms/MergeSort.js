@@ -30,9 +30,7 @@ export function mergeSort(array) {
   const midpoint = Math.floor(array.length / 2);
   const firstHalf = mergeSort(array.slice(0, midpoint));
   const secondHalf = mergeSort(array.slice(midpoint));
-  // console.log(midpoint);
-  // console.log(firstHalf);
-  // console.log(secondHalf);
+
   return merge(firstHalf, secondHalf);
 }
 

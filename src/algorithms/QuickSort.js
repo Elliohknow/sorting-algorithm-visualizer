@@ -20,5 +20,6 @@ export function quickSort(inputArray) {
     if (array[i].value < array[0].value) smaller.push(array[i]);
     if (array[i].value >= array[0].value) larger.push(array[i]);
   }
+
   return quickSort(smaller).concat(array[0], quickSort(larger));
 }
